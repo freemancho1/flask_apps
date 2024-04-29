@@ -1,0 +1,14 @@
+body {
+    background-image: url('/static/img/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.app-title {
+    font-size: 4em;
+    color: rgb(2, 87, 246); 
+}
+.app-title-div {
+    height: 100px;
+}

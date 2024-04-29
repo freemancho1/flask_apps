@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block document_title %}AiDDS{% endblock %}</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/opensource/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="w-50 app-title-div">
+            {% include "include/head.html" ignore missing %}
+        </div>
+
+        {% block test %}{% endblock test %}
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/opensource/bootstrap.min.js')}}"></script>
+    <!-- Your custom script (optional) -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js')}}"></script>
+    <script type="text/javascript">
+    </script>
+</body>
+</html>

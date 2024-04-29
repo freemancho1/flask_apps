@@ -1,0 +1,25 @@
+#!/home/freeman/anaconda3/envs/flaskp312/bin/python
+import argparse
+
+
+def get_app(run_app=None):
+    match run_app:
+        case 'aidds':
+            from aidds import app
+        case _:
+            from aidds import app
+    return app
+
+
+def main(run_app=None, port=None):
+    app = get_app(run_app)
+    app.run("0.0.0.0", port=port)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Run Flask Apps.')
+    parser.add_argument('app', type=str, default='aidds', help='Enter the app name to run')
+    parser.add_argument('--port', '-p', type=int, default=11000, help='')
+
+    args = parser.parse_args()
+    main(run_app=args.app, port=args.port)
