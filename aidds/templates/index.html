@@ -1,23 +1,61 @@
 {% extends "layouts/base.html" %}
-{% from "macro/index.html" import button_group %}
+{% from "macro/index.html" import button_group, json_to_html %}
 
 {% block main %}
-    <!-- <style>
-        div {
-            border: red 1px solid;
-        }
-    </style> -->
+
+    {% set json_data = {
+        "title": "Get Samples", 
+        "color": "btn-success", 
+        "click": "getSamples()",
+        "getSampleBtn": {
+            "title": "Get Samples", 
+            "color": "btn-success", 
+            "click": "getSamples()",
+            "reqPredictBtn": {
+                "title": "Req Predict", 
+                "color": "btn-danger", 
+                "click": "reqPredict()",
+                "reqPredictBtn": {
+                    "title": "Req Predict", 
+                    "color": "btn-danger", 
+                    "click": "reqPredict()"
+                },
+                "reqRePredictBtn": {
+                    "title": "ReReq Predict", 
+                    "color": "btn-danger", 
+                    "click": "reqRePredict()"
+                },
+            },
+            "reqRePredictBtn": {
+                "title": "ReReq Predict", 
+                "color": "btn-danger", 
+                "click": "reqRePredict()"
+            },
+        },
+        "reqPredictBtn": {
+            "title": "Req Predict", 
+            "color": "btn-danger", 
+            "click": "reqPredict()"
+        },
+        "reqRePredictBtn": {
+            "title": "ReReq Predict", 
+            "color": "btn-danger", 
+            "click": "reqRePredict()"
+        },
+    } %}
+
     <div class="row justify-content-around">
-        <div class="col-4">
-            a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>
-            a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>
-            a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>
+        <div class="col-4 aa">
+            {{json_to_html(json=json_data)}}
         </div>
-        <div class="col-2">
+        <div class="col-2 aa">
             {{button_group(btn_info=btn_info)}}
         </div>
-        <div class="col-4">a</div>
+        <div class="col-4 aa">
+            {{json_to_html(json=json_data)}}
+        </div>
     </div>
+
 
     <script type="text/javascript">
         const getSamples = () => {
@@ -30,4 +68,11 @@
             console.log('Click reqRePredict');
         }
     </script>
+
+    <!-- <style>
+        div .aa {
+            border: red 1px solid;
+        }
+    </style> -->
+    
 {% endblock main %}

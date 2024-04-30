@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 from datetime import timedelta
+from jinja2 import Environment
 
 app = Flask(__name__)
 app.debug = True
@@ -12,11 +13,18 @@ app.config.update(
 )
 app.jinja_env.trim_blocks = True
 
+# # Make filters
+# @app.template_filter('is_dict')
+# def is_dict(value):
+#     return isinstance(value, dict)
+
+# Check Jinja2 Filters
+# env = Environment()
+# print(f'Jinja2 Filters: {env.filters}')
+
 CORS(app)
 
 # Route
 from aidds.services.http import index
-from aidds.services.http import test
 
 app.add_url_rule('/', view_func=index.as_view('index'))
-app.add_url_rule('/test', view_func=test.as_view('test'))

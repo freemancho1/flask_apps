@@ -1,3 +1,5 @@
+{% from "macro/app_menu.html" import app_menu %}
+{% from "macro/app_footer.html" import app_footer %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,21 +17,20 @@
 </head>
 
 <body>
-    {% from "macro/head.html" import nav %}
-    <div class="container app-body">
-        {{nav(logo_img="ai-dds_01.svg", title="", xy=[210,50])}}
-        <!-- Header -->
-        <!-- <div class="app-title-div">
-            {# % include "include/head" ignore missing % #}
-        </div> -->
-
+    <div class="container app">
+        <div class="app-menu">
+        {{app_menu()}}
+        </div>
+        
         <!-- Main Body -->
-        <div class="app-main-div">
-            {% block main %}{% endblock main %}
+        <div class="app app-main">
+        {% block main %}{% endblock main %}
         </div>
 
         <!-- Footer -->
-        {% include "include/footer.html" ignore missing %}
+        <div class="app app-footer">
+        {{app_footer()}}
+        </div>
     </div>
 
     <!-- Bootstrap core JavaScript -->
