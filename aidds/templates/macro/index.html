@@ -3,13 +3,13 @@
 {% macro button_group(btn_info="") -%}
     <div class="d-flex justify-content-center">
         <div class="d-grid gap-5">
-            {% for id, v in btn_info | items %}
+            {% for id, value in btn_info | items %}
                 <!-- Call macro in macro -->
                 {{button(
                     id=id, 
-                    title=v.title, 
-                    color=v.color, 
-                    click=v.click
+                    title=value.title, 
+                    color=value.color, 
+                    click=value.click
                 )}}
             {% endfor %}
         </div>
@@ -57,6 +57,7 @@
     <!-- <ul class="list-group"> -->
         {# % for id, value in json | dictsort % #}
         {% for id, value in json | items %}
+            <!-- User Define Jinja2 Filter: is_dict -->
             {% if value | is_dict %}
                 <li class="list-group-item sub-item-t">{{id}}: {</li>
                 <li class="list-group-item sub-item">

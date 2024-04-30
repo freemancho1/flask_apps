@@ -45,13 +45,16 @@
     } %}
 
     <div class="row justify-content-around">
-        <div class="col-4 aa">
+        <!-- Input JSON data -->
+        <div class="col-4">
             {{json_to_html(json=json_data)}}
         </div>
-        <div class="col-2 aa">
+        <!-- Action Buttons -->
+        <div class="col-2">
             {{button_group(btn_info=btn_info)}}
         </div>
-        <div class="col-4 aa">
+        <!-- Predict Result JSON data -->
+        <div class="col-4">
             {{json_to_html(json=json_data)}}
         </div>
     </div>
@@ -68,11 +71,5 @@
             console.log('Click reqRePredict');
         }
     </script>
-
-    <!-- <style>
-        div .aa {
-            border: red 1px solid;
-        }
-    </style> -->
     
 {% endblock main %}
