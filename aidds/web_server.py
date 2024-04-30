@@ -15,6 +15,8 @@ app.jinja_env.trim_blocks = True
 CORS(app)
 
 # Route
+from aidds.services.http import index
 from aidds.services.http import test
 
+app.add_url_rule('/', view_func=index.as_view('index'))
 app.add_url_rule('/test', view_func=test.as_view('test'))

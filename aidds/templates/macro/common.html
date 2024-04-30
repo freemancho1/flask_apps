@@ -1,0 +1,8 @@
+{% macro button(id="", title="", color="btn-primary", click="") -%}
+<button 
+    {% if id %}id="{{id}}"{% endif %}
+    type="button" 
+    class="btn {{color}} text-white"
+    {% if click %}onclick="{{click}}"{% endif %}
+>{{title}}</button>
+{%- endmacro %}

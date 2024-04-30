@@ -1,0 +1,33 @@
+{% extends "layouts/base.html" %}
+{% from "macro/index.html" import button_group %}
+
+{% block main %}
+    <!-- <style>
+        div {
+            border: red 1px solid;
+        }
+    </style> -->
+    <div class="row justify-content-around">
+        <div class="col-4">
+            a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>
+            a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>
+            a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>
+        </div>
+        <div class="col-2">
+            {{button_group(btn_info=btn_info)}}
+        </div>
+        <div class="col-4">a</div>
+    </div>
+
+    <script type="text/javascript">
+        const getSamples = () => {
+            console.log('Click getSamples');
+        }
+        const reqPredict = () => {
+            console.log('Click reqPredict');
+        }
+        const reqRePredict = () => {
+            console.log('Click reqRePredict');
+        }
+    </script>
+{% endblock main %}

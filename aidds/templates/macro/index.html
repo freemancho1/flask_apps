@@ -1,0 +1,12 @@
+{% from "macro/common.html" import button %}
+
+{% macro button_group(btn_info="") -%}
+<div class="d-flex justify-content-center">
+    <div class="d-grid gap-5">
+        {% for id, v in btn_info | dictsort %}
+            <!-- Call macro in macro -->
+            {{button(id=id, title=v.title, color=v.color, click=v.click)}}
+        {% endfor %}
+    </div>
+</div>
+{%- endmacro %}

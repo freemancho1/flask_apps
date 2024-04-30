@@ -1,14 +1,30 @@
+/* html {
+    height: 100%;
+}
 body {
     background-image: url('/static/img/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-}
+    height: 100%;
+} */
 
+/* .app-body {
+    border: green 1px solid;
+} */
 .app-title {
-    font-size: 4em;
-    color: rgb(2, 87, 246); 
+    font-size: 5em;
 }
 .app-title-div {
     height: 100px;
 }
+.app-main-div {
+    /* position: fixed; */
+    /* height: 100%;
+    border: green 1px solid; */
+}
+
+/* .main-menu {
+    background-color: white !important;
+    margin-bottom: 30px;
+} */
