@@ -12,9 +12,6 @@ Flask-RESTful
 Flask-Login
 Flask-Mail
 Flask-Cors
-Flask-Security
-Flask-SQLAlchemy
-SQLAlchemy
 
 # utils
 email-validator
