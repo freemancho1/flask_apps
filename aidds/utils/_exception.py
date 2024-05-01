@@ -1,5 +1,5 @@
 from aidds import config as cfg 
-from aidds import get_caller, get_error
+from aidds.utils import get_caller, get_error
 
 
 class AppException(Exception):
