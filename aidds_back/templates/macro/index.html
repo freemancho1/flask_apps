@@ -1,0 +1,92 @@
+{% from "macro/common.html" import button %}
+
+{% macro button_group(btn_info="") -%}
+    <div class="d-flex justify-content-center">
+        <div class="d-grid gap-5">
+            {% for id, value in btn_info | items %}
+                <!-- Call macro in macro -->
+                {{button(
+                    id=id, 
+                    title=value.title, 
+                    color=value.color, 
+                    click=value.click
+                )}}
+            {% endfor %}
+        </div>
+    </div>
+{%- endmacro %}
+
+
+{% macro json_to_html(json=None) -%}
+    <li class="list-group-item">{</li>
+    <ul class="list-group list-group-flush">
+    <!-- <ul class="list-group"> -->
+        {# % for id, value in json | dictsort % #}
+        {% for id, value in json | items %}
+        {% if value | is_dict %}
+            <li class="list-group-item sub-item-t">{{id}}: {</li>
+            <li class="list-group-item sub-item">
+                {{json_to_html_sub(json=value)}}
+            </li>
+        {% else %}
+            <li class="list-group-item sub-item-t">
+                <div class="d-flex justify-content-between">
+                    <div>{{id}}:</div><div>{{value}},</div>
+                </div>
+            </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+    <li class="list-group-item">}</li>
+
+    <style>
+        .sub-item-t {
+            padding-left: 30px;
+        }
+        .sub-item {
+            padding-left: 30px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            padding-right: 0px;
+        }
+    </style>
+{%- endmacro %}
+
+{% macro json_to_html_sub(json=None) -%}
+    <ul class="list-group list-group-flush">
+    <!-- <ul class="list-group"> -->
+        {# % for id, value in json | dictsort % #}
+        {% for id, value in json | items %}
+            <!-- User Define Jinja2 Filter: is_dict -->
+            {% if value | is_dict %}
+                <li class="list-group-item sub-item-t">{{id}}: {</li>
+                <li class="list-group-item sub-item">
+                    {{json_to_html_sub(json=value)}}
+                </li>
+            {% else %}
+                <li class="list-group-item sub-item-t">
+                    <div class="d-flex justify-content-between">
+                        <div>{{id}}:</div><div>{{value}},</div>
+                    </div>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <li class="list-group-item sub-item-t">},</li>
+{%- endmacro %}
+
+<!-- Backup `json_to_html()` -->
+{% macro json_to_html_simple(json=None) -%}
+    <ul>
+    {% for id, value in json | dictsort %}
+        <li>
+        {% if value | is_dict %}
+            <div>{{id}}:</div>
+            {{json_to_html(json=value)}}
+        {% else %}
+            <div>{{id}}: {{value}}</div>
+        {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+{%- endmacro %}

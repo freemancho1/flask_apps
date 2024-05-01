@@ -1,0 +1,43 @@
+{% from "macro/app_menu.html" import app_menu %}
+{% from "macro/app_footer.html" import app_footer %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block document_title %}AiDDS{% endblock %}</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/opensource/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container app">
+        <div class="app-menu">
+        {{app_menu()}}
+        </div>
+        
+        <!-- Main Body -->
+        <div class="app app-main">
+        {% block main %}{% endblock main %}
+        </div>
+
+        <!-- Footer -->
+        <div class="app app-footer">
+        {{app_footer()}}
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/opensource/bootstrap.min.js')}}"></script>
+    <!-- Your custom script (optional) -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js')}}"></script>
+    <script type="text/javascript">
+    </script>
+</body>
+</html>

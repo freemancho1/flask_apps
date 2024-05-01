@@ -1,0 +1,75 @@
+{% extends "layouts/base.html" %}
+{% from "macro/index.html" import button_group, json_to_html %}
+
+{% block main %}
+
+    {% set json_data = {
+        "title": "Get Samples", 
+        "color": "btn-success", 
+        "click": "getSamples()",
+        "getSampleBtn": {
+            "title": "Get Samples", 
+            "color": "btn-success", 
+            "click": "getSamples()",
+            "reqPredictBtn": {
+                "title": "Req Predict", 
+                "color": "btn-danger", 
+                "click": "reqPredict()",
+                "reqPredictBtn": {
+                    "title": "Req Predict", 
+                    "color": "btn-danger", 
+                    "click": "reqPredict()"
+                },
+                "reqRePredictBtn": {
+                    "title": "ReReq Predict", 
+                    "color": "btn-danger", 
+                    "click": "reqRePredict()"
+                },
+            },
+            "reqRePredictBtn": {
+                "title": "ReReq Predict", 
+                "color": "btn-danger", 
+                "click": "reqRePredict()"
+            },
+        },
+        "reqPredictBtn": {
+            "title": "Req Predict", 
+            "color": "btn-danger", 
+            "click": "reqPredict()"
+        },
+        "reqRePredictBtn": {
+            "title": "ReReq Predict", 
+            "color": "btn-danger", 
+            "click": "reqRePredict()"
+        },
+    } %}
+
+    <div class="row justify-content-around">
+        <!-- Input JSON data -->
+        <div class="col-4">
+            {{json_to_html(json=json_data)}}
+        </div>
+        <!-- Action Buttons -->
+        <div class="col-2">
+            {{button_group(btn_info=btn_info)}}
+        </div>
+        <!-- Predict Result JSON data -->
+        <div class="col-4">
+            {{json_to_html(json=json_data)}}
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        const getSamples = () => {
+            console.log('Click getSamples');
+        }
+        const reqPredict = () => {
+            console.log('Click reqPredict');
+        }
+        const reqRePredict = () => {
+            console.log('Click reqRePredict');
+        }
+    </script>
+    
+{% endblock main %}
